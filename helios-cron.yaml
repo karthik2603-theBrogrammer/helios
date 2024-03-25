@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: helios
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: helios
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: d13bae753a7a
+            imagePullPolicy: IfNotPresent
+            name: helios
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '*/1 * * * *'
+status: {}
